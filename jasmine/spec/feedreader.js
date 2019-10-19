@@ -32,10 +32,10 @@ $(function() {
          * and that the URL is not empty.
          */
         it('have URLs defined', function() {
-            for(var feed of allFeeds) {                   // Iterates through allFeeds
-              expect(feed.url).toBeDefined();             // Checks if its defined
-              expect(feed.url).not.toBe(0);               // Checks if its not zero
-              expect(feed.url.constructor).toBe(String);  // Checks if its a string type value
+            for(var feed of allFeeds) {
+              expect(feed.url).toBeDefined();
+              expect(feed.url).not.toBe(0);
+              expect(feed.url.constructor).toBe(String);
             }
         });
 
@@ -44,10 +44,10 @@ $(function() {
          * and that the name is not empty.
          */
          it('have names defined', function() {
-            for(var feed of allFeeds) {                   // Iterates through allFeeds
-              expect(feed.name).toBeDefined();            // Checks if its defined
-              expect(feed.name).not.toBe(0);              // Checks if its not zero
-              expect(feed.name.constructor).toBe(String); // Checks if its a string type value
+            for(var feed of allFeeds) {
+              expect(feed.name).toBeDefined();
+              expect(feed.name).not.toBe(0);
+              expect(feed.name.constructor).toBe(String);
             }
          });
     });
@@ -61,7 +61,7 @@ $(function() {
          * hiding/showing of the menu element.
          */
          it('is hidden by default', function() {
-            var isHidden = document.body.classList.contains('menu-hidden');  // If it contains the 'menu-hidden' class, its hidden
+            var isHidden = document.body.classList.contains('menu-hidden');
             expect(isHidden).toBe(true);
          });
 
@@ -72,16 +72,15 @@ $(function() {
           */
           it('changes visibility when clicked', function() {
               var menuButton = document.querySelector('a.menu-icon-link');
-              menuButton.click();                                                     // Simulates a click
-              expect(document.body.classList.contains('menu-hidden')).toBe(false);    // Menu must be visible
-              menuButton.click();                                                     // Simulates a click
-              expect(document.body.classList.contains('menu-hidden')).toBe(true);     // Menu must be Hidden
+              menuButton.click();
+              expect(document.body.classList.contains('menu-hidden')).toBe(false);
+              menuButton.click();
+              expect(document.body.classList.contains('menu-hidden')).toBe(true);
           });
     });
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function(){
 
-        //Async test procedure
         beforeEach(function(done) {
             loadFeed(1, done);
         });
@@ -94,7 +93,7 @@ $(function() {
          it('have entries', function() {
             var feedContainer = document.querySelector('div.feed');
             var entries = feedContainer.querySelectorAll('article.entry');
-            expect(entries.length).toBeGreaterThan(0);  // Checks if the entries exist.
+            expect(entries.length).toBeGreaterThan(0);
          });
     });
     /* TODO: Write a new test suite named "New Feed Selection" */
@@ -103,7 +102,6 @@ $(function() {
         var firstFeed,
             secondFeed;
 
-        // Async test procedure
         beforeEach(function(done) {
             loadFeed(3, function() {
                 firstFeed = document.querySelector('div.feed').innerHTML;
@@ -118,7 +116,7 @@ $(function() {
          * Remember, loadFeed() is asynchronous.
          */
          it('changes content when new feed is loaded', function() {
-              expect(firstFeed).not.toBe(secondFeed);  // Make sure content changes
+              expect(firstFeed).not.toBe(secondFeed);
          });
 
     });
